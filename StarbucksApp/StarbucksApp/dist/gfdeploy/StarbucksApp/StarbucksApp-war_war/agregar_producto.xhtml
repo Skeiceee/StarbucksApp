@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h:form  >
+           <p:menubar>
+                <p:menuitem value="Home" url="index.xhtml" />
+                <p:menuitem value="Agregar Productos" 
+                            url="agregar_producto.xhtml" />
+            </p:menubar>
+           <section>
+               <p:messages >
+                   <p:autoUpdate />
+               </p:messages>
+               <p:panel header="Ingresar Producto">
+                   <h:panelGrid columns="2">
+                       <h:outputLabel value="Nombre" />
+                       <p:inputText value="#{productosManagedBean.nombreTxt}" 
+                                    required="true" />
+                       <h:outputLabel value="Descripcion" />
+                       <p:textEditor 
+                           height="200"
+                           value="#{productosManagedBean.descripcionTxt}"
+                           required="true" />
+                       <h:outputLabel value="Valor" />
+                       <p:inputNumber symbol="$" 
+                                      required="true"
+                                      value="#{productosManagedBean.valorTxt}"
+                                      decimalPlaces="0" />
+                       <p:commandButton value="Ingresar"
+                                        actionListener="#{productosManagedBean.agregarProducto}"
+                                        />
+                   </h:panelGrid>
+               </p:panel>
+           </section>
+        </h:form>
+    </h:body>
+</html>
