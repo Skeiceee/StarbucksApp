@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>StarbucksApp</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:include src="WEB-INF/templates/header.xhtml"/>
+            <section>
+                <p:panel header="Ver Productos">
+                    <p:dataTable value="#{productosManagedBean.productos}" 
+                                 var="p">
+                        <p:column headerText="Nombre" 
+                                  filterBy="#{p.nombre}"
+                                  sortBy="#{p.nombre}">
+                            <h:outputText value="#{p.nombre}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Valor">
+                            <h:outputText value="$#{p.valor}"></h:outputText>
+                        </p:column>
+                        <p:column  headerText="Acciones">  
+                            
+                        </p:column>
+                        
+                    </p:dataTable>
+                </p:panel>
+            </section>
+        </h:form>
+    </h:body>
+</html>
